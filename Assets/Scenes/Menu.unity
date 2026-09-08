@@ -2065,6 +2065,11 @@ MonoBehaviour:
   gameTime: 0
   gameScore: 0
   curId: 
+  maxHp: 5
+  upgrade: 0
+  maxUpgrade: 3
+  bomb: 0
+  maxBomb: 3
 --- !u!4 &1713781168
 Transform:
   m_ObjectHideFlags: 0

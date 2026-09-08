@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 
 namespace Gonutyun
 {
@@ -10,6 +11,13 @@ namespace Gonutyun
         public float gameTime = 0;
         public int gameScore = 0;
         public string curId;
+
+        public float maxHp = 5f;
+        public int upgrade = 0;
+        public int maxUpgrade = 3;
+        public int bomb = 0;
+        public int maxBomb = 3;
+
 
         void Awake()
         {
@@ -41,7 +49,29 @@ namespace Gonutyun
             PlayerPrefs.SetInt("Music", isMusisc);
             PlayerPrefs.SetInt("Sound", isSound);
 
+            string saveData = curId + "," + gameScore;
+            PlayerPrefs.SetString("saveData", saveData);
+
         }
+
+        public void LoadData2()
+        {
+            if (!PlayerPrefs.HasKey("saveData"))
+            {
+                string saveData = curId + "," + gameScore;
+                PlayerPrefs.SetString("saveData", saveData);
+            }
+
+            string tempData = PlayerPrefs.GetString("saveData");
+            string[] data = tempData.Split(",");
+
+            curId = data[0];
+            gameScore = int.Parse(data[1]);
+        }
+
+
+
+
 
         public void LoadData()
         {
