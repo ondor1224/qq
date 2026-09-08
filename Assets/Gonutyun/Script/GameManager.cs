@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
 namespace Gonutyun
 {
@@ -12,6 +14,12 @@ namespace Gonutyun
         public float spawnWait;
         public float startWait;
         public float waveWait;
+
+        public Text Hp;
+        public Text Upgrade;
+        public Text Bomb;
+
+        
 
         public List<GameObject> listEnemys = new List<GameObject>();
 
@@ -29,6 +37,16 @@ namespace Gonutyun
         {
             gameStatus = GameStatus.play;
             StartCoroutine(SpawnEnemy());
+
+
+            Player player = GameObject.Find("Player").GetComponent<Player>();
+            player.Hp = GameDataManager.instance.maxHp;
+            player.Upgrade = GameDataManager.instance.upgrade;
+            player.Bomb = GameDataManager.instance.bomb;
+
+            Hp.text = "Hp:" + player.Hp;
+            Upgrade.text = "Upgrade:" + player.Upgrade;
+            Bomb.text = "Bomb:" + player.Bomb;
         }
 
         IEnumerator SpawnEnemy()

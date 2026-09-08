@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.SocialPlatforms.Impl;
+using UnityEngine.UI;
 
 namespace Gonutyun
 {
@@ -17,6 +18,10 @@ namespace Gonutyun
         public int maxUpgrade = 3;
         public int bomb = 0;
         public int maxBomb = 3;
+
+        public Text HP;
+        public Text Upgrade;
+        public Text Bomb;
 
 
         void Awake()

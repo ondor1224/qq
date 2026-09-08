@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Gonutyun
 {
@@ -10,6 +11,12 @@ namespace Gonutyun
 
         public GameObject objBullet;
         public Transform BulletPoint;
+        public float Hp;
+        public int Upgrade;
+        public int Bomb;
+
+
+
 
         private Rigidbody thisRigi;
         //private GameManager gameManager;
