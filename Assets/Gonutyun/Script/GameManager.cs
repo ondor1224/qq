@@ -18,6 +18,7 @@ namespace Gonutyun
         public Text Hp;
         public Text Upgrade;
         public Text Bomb;
+        public Text score;
 
         
 
@@ -43,10 +44,12 @@ namespace Gonutyun
             player.Hp = GameDataManager.instance.maxHp;
             player.Upgrade = GameDataManager.instance.upgrade;
             player.Bomb = GameDataManager.instance.bomb;
+            player.Score = GameDataManager.instance.gameScore;
 
             Hp.text = "Hp:" + player.Hp;
             Upgrade.text = "Upgrade:" + player.Upgrade;
             Bomb.text = "Bomb:" + player.Bomb;
+            score.text = "Score:" + player.Score;
         }
 
         IEnumerator SpawnEnemy()

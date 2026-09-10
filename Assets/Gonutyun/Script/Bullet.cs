@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 
 namespace Gonutyun
 {
@@ -32,6 +33,11 @@ namespace Gonutyun
             //}
         }
 
+        void Start()
+        {
+            Player player = GameObject.Find("Player").GetComponent<Player>();
+        }
+
         public void SetBullet(Vector3 _destination)
         {
             destination = _destination;
@@ -49,17 +55,40 @@ namespace Gonutyun
                 {
                     Instantiate(Item, this.transform.position, Item.transform.rotation);
 
+                    Player player = GameObject.Find("Player").GetComponent<Player>();
+                    GameManager gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+                    player.Score += 1;
+                    gameManager.score.text = "score:" + player.Score.ToString();
                     Destroy(other.gameObject);
                     Destroy(this.gameObject);
+                    
                 }
             }
             else
             {
                 if (other.CompareTag("Player"))
                 {
-                    Destroy(other.gameObject);
-                    Destroy(this.gameObject);
+                    Destroy(gameObject);
+                    Player player = GameObject.Find("Player").GetComponent<Player>();
+                    GameManager gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+
+                    if (player.Hp==0)
+                    {
+                        Destroy(other.gameObject);
+                        Destroy(this.gameObject);
+
+                    }
+                    
+                    else
+                    {
+                        player.Hp -= 1;
+                        gameManager.Hp.text = "Hp:" + player.Hp.ToString();
+
+                    }
+                    
                 }
+
+                
             }
         }
     }

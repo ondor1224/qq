@@ -14,6 +14,7 @@ namespace Gonutyun
         public float Hp;
         public int Upgrade;
         public int Bomb;
+        public int Score;
 
 
 
@@ -78,10 +79,21 @@ namespace Gonutyun
 
         void OnTriggerEnter(Collider other)
         {
+            Player player = GameObject.Find("Player").GetComponent<Player>();
+            GameManager gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
             if (other.CompareTag("Enemy"))
             {
                     Destroy(other.gameObject);
                     Destroy(gameObject);
+            }
+
+            if (other.CompareTag("item"))
+            {
+                player.Hp += 1;
+                gameManager.Hp.text = "Hp:" + player.Hp.ToString();
+                Destroy(other.gameObject);
+                
+
             }
         }
     }
