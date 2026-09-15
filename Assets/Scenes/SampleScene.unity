@@ -564,7 +564,7 @@ GameObject:
   - component: {fileID: 480639047}
   m_Layer: 0
   m_Name: GameManager
-  m_TagString: Untagged
+  m_TagString: GameManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -592,6 +592,11 @@ MonoBehaviour:
   Upgrade: {fileID: 466984779}
   Bomb: {fileID: 1648689511}
   score: {fileID: 2031139591}
+  bossTime: 0
+  bossScript: {fileID: 0}
+  isBoss: 0
+  Boss: {fileID: 6928515499408956167, guid: 09368278be91e254ab4ef9a4f742e8bc, type: 3}
+  gameTime: 0
   listEnemys: []
   gameStatus: 0
 --- !u!4 &480639048

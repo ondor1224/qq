@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using static UnityEditor.Experimental.GraphView.GraphView;
 
 namespace Gonutyun
 {
@@ -20,7 +19,17 @@ namespace Gonutyun
         public Text Bomb;
         public Text score;
 
-        
+        public float bossTime;
+        public Boss bossScript;
+        public bool isBoss = false;
+        public GameObject Boss;
+        public float gameTime;
+
+
+
+       
+
+
 
         public List<GameObject> listEnemys = new List<GameObject>();
 
@@ -69,10 +78,25 @@ namespace Gonutyun
                 }
             }
         }
-
         void Update()
         {
-
+            if (!isBoss)
+            {
+                if (gameTime > bossTime)
+                {
+                    StopAllCoroutines();
+                    Invoke("BossInit", 2.0f);
+                    isBoss = true;
+                }
+            }
+            gameTime += Time.deltaTime;
         }
+
+        void BossInit()
+        {
+            Vector3 spawnPosition = new Vector3(Random.Range(-spawnvalue.x, spawnvalue.x), spawnvalue.y, spawnvalue.z);
+            Instantiate(Boss, spawnPosition, Boss.transform.rotation);
+        }
+
     }
 }

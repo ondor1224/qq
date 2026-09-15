@@ -23,7 +23,7 @@ namespace Gonutyun
         public Text Upgrade;
         public Text Bomb;
 
-
+       
         void Awake()
         {
             
@@ -99,4 +99,6 @@ namespace Gonutyun
 
        
     }
+
+    
 }

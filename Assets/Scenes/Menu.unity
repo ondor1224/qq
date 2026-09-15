@@ -2070,6 +2070,9 @@ MonoBehaviour:
   maxUpgrade: 3
   bomb: 0
   maxBomb: 3
+  HP: {fileID: 0}
+  Upgrade: {fileID: 0}
+  Bomb: {fileID: 0}
 --- !u!4 &1713781168
 Transform:
   m_ObjectHideFlags: 0
